@@ -293,31 +293,6 @@ h2 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); }
 .chat.in .msg:nth-child(4) { transition-delay: 2.6s; }
 .chat.in .msg:nth-child(5) { transition-delay: 3.3s; }
 
-/* ============ Carta Digital QR ============ */
-.product { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; align-items: center; }
-.product__phone { justify-self: center; }
-.mini-phone {
-  position: relative; width: 280px; height: 570px; padding: 11px; border-radius: 44px; background: #0a1a3a;
-  box-shadow: 0 50px 100px -40px rgba(10,26,58,.5), 0 30px 60px -30px rgba(21,70,214,.35);
-}
-[data-theme="dark"] .mini-phone { background: #1a2442; }
-.mini-phone iframe { width: 100%; height: 100%; border: 0; border-radius: 34px; background: #fbf8f4; display: block; }
-.mini-phone__notch { position: absolute; top: 19px; left: 50%; transform: translateX(-50%); width: 84px; height: 22px; border-radius: 999px; background: #0a1a3a; z-index: 2; }
-.product__phone.in .mini-phone { animation: phoneFloat 7s ease-in-out 1.2s infinite; }
-@keyframes phoneFloat { 50% { transform: translateY(-10px); } }
-.product h2 { margin-bottom: 18px; }
-.product__lead { font-size: 1.12rem; max-width: 540px; margin-bottom: 28px; }
-.product__list { list-style: none; display: grid; gap: 12px; margin-bottom: 28px; color: var(--ink); }
-.product__list li { display: flex; gap: 12px; align-items: center; }
-.product__list li::before {
-  content: ""; flex: none; width: 20px; height: 20px; border-radius: 50%; background-color: var(--blue-soft);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231546d6' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4L18 8'/%3E%3C/svg%3E");
-  background-position: center; background-size: 12px; background-repeat: no-repeat;
-}
-.product__price { color: var(--muted); margin-bottom: 28px; }
-.product__price strong { color: var(--ink); font-size: 1.5rem; letter-spacing: -0.02em; }
-.product__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 28px; }
-
 /* ============ Por qué ============ */
 .why { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: start; }
 .why .section__head { margin-bottom: 0; position: sticky; top: 120px; }
@@ -396,7 +371,7 @@ h2 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); }
   .services { grid-template-columns: 1fr; }
   .service, .service + .service { padding: 40px 0; border-right: 0; border-bottom: 1px solid var(--line); }
   .service__num, .service:last-child .service__num { right: 0; top: 40px; }
-  .feature, .why, .faq, .product { grid-template-columns: 1fr; gap: 48px; }
+  .feature, .why, .faq { grid-template-columns: 1fr; gap: 48px; }
   .why .section__head { position: static; }
   .chat { justify-self: start; }
   .steps { grid-template-columns: repeat(2, 1fr); gap: 40px 32px; }
@@ -422,7 +397,6 @@ h2 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); }
   .section__head { margin-bottom: 48px; }
   .steps { grid-template-columns: 1fr; }
   .why__item { grid-template-columns: 1fr; gap: 8px; }
-  .mini-phone { width: 260px; height: 530px; }
   .cta { padding: 44px 28px; }
 }
 
