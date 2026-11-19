@@ -35,7 +35,7 @@
 
       <nav class="nav__links" aria-label="Principal">
         <a href="#servicios" data-i18n="nav.services">Servicios</a>
-        <a href="#plataforma">Consultas &amp; Visitas</a>
+        <a href="#plataforma" data-i18n="nav.products">Productos</a>
         <a href="#metodo" data-i18n="nav.method">Método</a>
         <a href="#faq" data-i18n="nav.faq">Preguntas</a>
         <a href="#contacto" class="btn btn--sm nav__cta" data-i18n="nav.contact">Contactar</a>
@@ -161,6 +161,66 @@
       </div>
     </section>
 
+    <!-- PRODUCTOS -->
+    <section id="productos" class="section">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="kicker" data-i18n="pr.kicker">Más productos</p>
+          <h2 data-i18n="pr.title">Herramientas que trabajan para tu negocio.</h2>
+        </div>
+        <div class="products">
+          <article class="product reveal">
+            <div class="product__visual product__visual--audit" aria-hidden="true">
+              <div class="mbar"><span></span><b>www.tuweb.com</b><i data-i18n="pr.a.scan">Analizar</i></div>
+              <div class="mrings">
+                <div class="mring mring--good"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="mring__t" cx="32" cy="32" r="26"/><circle class="mring__v" cx="32" cy="32" r="26" stroke-dasharray="163.4" stroke-dashoffset="163.4" style="--off:13.1"/></svg><b>92</b><span data-i18n="pr.a.r1"></span></div>
+                <div class="mring mring--mid"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="mring__t" cx="32" cy="32" r="26"/><circle class="mring__v" cx="32" cy="32" r="26" stroke-dasharray="163.4" stroke-dashoffset="163.4" style="--off:35.9"/></svg><b>78</b><span data-i18n="pr.a.r2"></span></div>
+                <div class="mring mring--good"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="mring__t" cx="32" cy="32" r="26"/><circle class="mring__v" cx="32" cy="32" r="26" stroke-dasharray="163.4" stroke-dashoffset="163.4" style="--off:0.0"/></svg><b>100</b><span data-i18n="pr.a.r3"></span></div>
+                <div class="mring mring--mid"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="mring__t" cx="32" cy="32" r="26"/><circle class="mring__v" cx="32" cy="32" r="26" stroke-dasharray="163.4" stroke-dashoffset="163.4" style="--off:58.8"/></svg><b>64</b><span data-i18n="pr.a.r4"></span></div>
+              </div>
+            </div>
+            <div class="product__body">
+              <p class="product__tag" data-i18n="pr.a.tag">Gratis para tus clientes</p>
+              <h3 data-i18n="pr.a.title">Auditoría web</h3>
+              <p data-i18n="pr.a.text">Cualquiera puede analizar su web en menos de un minuto y recibir una nota y la lista de mejoras. Después, nosotros nos encargamos de arreglarlo.</p>
+              <ul>
+                <li data-i18n="pr.a.l1">Velocidad, SEO, accesibilidad y seguridad</li>
+                <li data-i18n="pr.a.l2">Informe descargable en PDF</li>
+                <li data-i18n="pr.a.l3">Optimización y seguimiento mensual</li>
+              </ul>
+              <div class="product__cta">
+                <a href="https://pauizel0606.github.io/codelab-auditoria/" class="btn"><span data-i18n="pr.a.cta">Analizar mi web gratis</span> <span class="arrow">→</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product reveal" style="--d:.12s">
+            <div class="product__visual product__visual--bot" aria-hidden="true">
+              <div class="mchat">
+                <div class="mchat__m mchat__m--u" data-i18n="pr.b.m1">¿Tenéis cita para mañana?</div>
+                <div class="mchat__m mchat__m--b" data-i18n="pr.b.m2">¡Sí! Quedan huecos a las 10:30 y a las 17:00. ¿Cuál te va mejor?</div>
+                <div class="mchat__m mchat__m--u" data-i18n="pr.b.m3">A las 17:00</div>
+                <div class="mchat__lead"><span class="mchat__dot"></span><b data-i18n="pr.b.lead">Nuevo contacto captado</b></div>
+              </div>
+            </div>
+            <div class="product__body">
+              <p class="product__tag" data-i18n="pr.b.tag">Inteligencia artificial</p>
+              <h3 data-i18n="pr.b.title">Asistente IA para negocios</h3>
+              <p data-i18n="pr.b.text">Un asistente en tu web que atiende a tus clientes las 24 horas con la información de tu negocio y te pasa los contactos interesados.</p>
+              <ul>
+                <li data-i18n="pr.b.l1">Responde al momento, también de noche</li>
+                <li data-i18n="pr.b.l2">Capta nombre y teléfono de los interesados</li>
+                <li data-i18n="pr.b.l3">Castellano, catalán e inglés</li>
+              </ul>
+              <div class="product__cta">
+                <a href="https://pauizel0606.github.io/codelab-asistente/" class="btn"><span data-i18n="pr.b.cta">Probar la demo</span> <span class="arrow">→</span></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- POR QUÉ -->
     <section class="section">
       <div class="container why">
@@ -253,6 +313,8 @@
       <nav class="footer__links">
         <a href="#servicios" data-i18n="nav.services">Servicios</a>
         <a href="https://consultasyvisitas.pauizel.com" target="_blank" rel="noopener">Consultas &amp; Visitas</a>
+        <a href="https://pauizel0606.github.io/codelab-auditoria/" data-i18n="pr.a.title">Auditoría web</a>
+        <a href="https://pauizel0606.github.io/codelab-asistente/" data-i18n="pr.b.foot">Asistente IA</a>
         <a href="#faq" data-i18n="nav.faq">Preguntas</a>
         <a href="#contacto" data-i18n="nav.contact">Contactar</a>
       </nav>
