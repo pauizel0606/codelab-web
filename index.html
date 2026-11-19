@@ -1,10 +1,21 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Codelab · Desarrollo web, hosting y SEO</title>
   <meta name="description" content="Codelab: creación de páginas web, hosting, posicionamiento SEO y Consultas & Visitas, la plataforma para que tus clientes reserven cita por chat.">
+  <meta name="theme-color" content="#1546d6">
+  <script>
+    (function () {
+      var t, l;
+      try { t = localStorage.getItem('codelab-theme'); l = localStorage.getItem('codelab-lang'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      if (l !== 'es' && l !== 'ca') l = /^ca\b/i.test(navigator.language || '') ? 'ca' : 'es';
+      document.documentElement.setAttribute('data-theme', t);
+      document.documentElement.setAttribute('lang', l);
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,37 +24,57 @@
 </head>
 <body>
 
+  <a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
+
   <header class="nav" id="nav">
     <div class="container nav__inner">
-      <a href="#" class="logo" aria-label="Codelab, inicio">
+      <a href="#" class="logo" aria-label="Codelab">
         <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7"/><path d="M13 11l-5 5 5 5M19 11l5 5-5 5"/></svg>
         Codelab
       </a>
-      <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span></button>
-      <nav class="nav__links">
-        <a href="#servicios">Servicios</a>
+
+      <nav class="nav__links" aria-label="Principal">
+        <a href="#servicios" data-i18n="nav.services">Servicios</a>
         <a href="#plataforma">Consultas &amp; Visitas</a>
-        <a href="#metodo">Método</a>
-        <a href="#contacto" class="btn btn--sm">Contactar</a>
+        <a href="#metodo" data-i18n="nav.method">Método</a>
+        <a href="#faq" data-i18n="nav.faq">Preguntas</a>
+        <a href="#contacto" class="btn btn--sm nav__cta" data-i18n="nav.contact">Contactar</a>
       </nav>
+
+      <div class="nav__tools">
+        <div class="lang" role="group" aria-label="Idioma">
+          <button type="button" data-lang="es" aria-pressed="true">ES</button>
+          <button type="button" data-lang="ca" aria-pressed="false">CA</button>
+        </div>
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Cambiar tema" data-i18n-aria="theme">
+          <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>
+        </button>
+        <button class="nav__toggle" aria-label="Menú" aria-expanded="false"><span></span><span></span></button>
+      </div>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- HERO -->
     <section class="hero">
       <div class="hero__grid" aria-hidden="true"></div>
       <div class="container hero__inner">
-        <p class="kicker reveal">Desarrollo web · Hosting · SEO</p>
+        <p class="kicker reveal" data-i18n="hero.kicker">Desarrollo web · Hosting · SEO</p>
         <h1 class="hero__title">
-          <span class="line"><span>Tecnología sólida</span></span>
-          <span class="line"><span>para negocios <em>serios</em>.</span></span>
+          <span class="line"><span data-i18n="hero.l1">Tecnología sólida</span></span>
+          <span class="line"><span data-i18n="hero.l2">para negocios <em>serios</em>.</span></span>
         </h1>
-        <p class="hero__lead reveal" style="--d:.5s">Diseñamos, alojamos y posicionamos tu web. Y te damos las herramientas para que tus clientes reserven cita contigo sin una sola llamada.</p>
+        <p class="hero__lead reveal" style="--d:.5s" data-i18n="hero.lead">Diseñamos, alojamos y posicionamos tu web. Y te damos las herramientas para que tus clientes reserven cita contigo sin una sola llamada.</p>
         <div class="hero__cta reveal" style="--d:.65s">
-          <a href="#contacto" class="btn">Solicitar presupuesto</a>
-          <a href="#servicios" class="link-arrow">Ver servicios <span>→</span></a>
+          <a href="#contacto" class="btn" data-i18n="hero.cta">Solicitar presupuesto</a>
+          <a href="#servicios" class="link-arrow"><span data-i18n="hero.more">Ver servicios</span> <span class="a">→</span></a>
         </div>
+        <ul class="hero__facts reveal" style="--d:.8s">
+          <li><strong data-i18n="facts.1t">Diseño a medida</strong><span data-i18n="facts.1d">Sin plantillas genéricas</span></li>
+          <li><strong data-i18n="facts.2t">Todo en un equipo</strong><span data-i18n="facts.2d">Web, hosting y SEO</span></li>
+          <li><strong data-i18n="facts.3t">Soporte cercano</strong><span data-i18n="facts.3d">Antes y después del lanzamiento</span></li>
+        </ul>
       </div>
     </section>
 
@@ -51,44 +82,44 @@
     <section id="servicios" class="section">
       <div class="container">
         <div class="section__head reveal">
-          <p class="kicker">Servicios</p>
-          <h2>Todo lo que tu negocio necesita en internet, en un solo lugar.</h2>
+          <p class="kicker" data-i18n="services.kicker">Servicios</p>
+          <h2 data-i18n="services.title">Todo lo que tu negocio necesita en internet, en un solo lugar.</h2>
         </div>
 
         <div class="services">
           <article class="service reveal" style="--d:0s">
             <span class="service__num">01</span>
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8M12 18v3"/></svg>
-            <h3>Creación de páginas web</h3>
-            <p>Webs corporativas, tiendas online y landing pages a medida. Rápidas, adaptadas a cualquier dispositivo y diseñadas para convertir.</p>
+            <h3 data-i18n="s1.t">Creación de páginas web</h3>
+            <p data-i18n="s1.d">Webs corporativas, tiendas online y landing pages a medida. Rápidas, adaptadas a cualquier dispositivo y diseñadas para convertir.</p>
             <ul>
-              <li>Diseño a medida</li>
-              <li>Adaptada a móvil</li>
-              <li>Fácil de gestionar</li>
+              <li data-i18n="s1.a">Diseño a medida</li>
+              <li data-i18n="s1.b">Adaptada a móvil</li>
+              <li data-i18n="s1.c">Fácil de gestionar</li>
             </ul>
           </article>
 
           <article class="service reveal" style="--d:.12s">
             <span class="service__num">02</span>
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="1.5"/><rect x="3" y="14" width="18" height="7" rx="1.5"/><path d="M7 6.5h.01M7 17.5h.01"/></svg>
-            <h3>Hosting</h3>
-            <p>Alojamiento seguro y de alto rendimiento, con certificado SSL, copias de seguridad y mantenimiento. Tu web siempre disponible.</p>
+            <h3 data-i18n="s2.t">Hosting</h3>
+            <p data-i18n="s2.d">Alojamiento seguro y de alto rendimiento, con certificado SSL, copias de seguridad y mantenimiento. Tu web siempre disponible.</p>
             <ul>
-              <li>Certificado SSL</li>
-              <li>Copias de seguridad</li>
-              <li>Soporte técnico</li>
+              <li data-i18n="s2.a">Certificado SSL</li>
+              <li data-i18n="s2.b">Copias de seguridad</li>
+              <li data-i18n="s2.c">Soporte técnico</li>
             </ul>
           </article>
 
           <article class="service reveal" style="--d:.24s">
             <span class="service__num">03</span>
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M5 16l5-5 4 4 6-7"/><path d="M15 8h5v5"/></svg>
-            <h3>Posicionamiento SEO</h3>
-            <p>Optimizamos tu web para que aparezca en los primeros resultados de Google cuando tus clientes buscan lo que ofreces.</p>
+            <h3 data-i18n="s3.t">Posicionamiento SEO</h3>
+            <p data-i18n="s3.d">Optimizamos tu web para que aparezca en los primeros resultados de Google cuando tus clientes buscan lo que ofreces.</p>
             <ul>
-              <li>Auditoría técnica</li>
-              <li>SEO local</li>
-              <li>Informes periódicos</li>
+              <li data-i18n="s3.a">Auditoría técnica</li>
+              <li data-i18n="s3.b">SEO local</li>
+              <li data-i18n="s3.c">Informes periódicos</li>
             </ul>
           </article>
         </div>
@@ -99,50 +130,102 @@
     <section id="plataforma" class="section section--blue">
       <div class="container feature">
         <div class="feature__text">
-          <p class="kicker kicker--light reveal">Producto propio</p>
+          <p class="kicker kicker--light reveal" data-i18n="p.kicker">Producto propio</p>
           <h2 class="reveal" style="--d:.08s">Consultas &amp; Visitas</h2>
-          <p class="feature__lead reveal" style="--d:.16s">Una plataforma web que permite a tus clientes reservar cita contigo mediante un chat. Sin llamadas, sin esperas, a cualquier hora.</p>
+          <p class="feature__lead reveal" style="--d:.16s" data-i18n="p.lead">Una plataforma web que permite a tus clientes reservar cita contigo mediante un chat. Sin llamadas, sin esperas, a cualquier hora.</p>
           <ul class="checks">
-            <li class="reveal" style="--d:.24s">Reservas mediante una conversación natural</li>
-            <li class="reveal" style="--d:.30s">Agenda organizada automáticamente</li>
-            <li class="reveal" style="--d:.36s">Disponible 24 horas, 7 días a la semana</li>
-            <li class="reveal" style="--d:.42s">Pensada para clínicas, despachos y profesionales</li>
+            <li class="reveal" style="--d:.24s" data-i18n="p.c1">Reservas mediante una conversación natural</li>
+            <li class="reveal" style="--d:.30s" data-i18n="p.c2">Agenda organizada automáticamente</li>
+            <li class="reveal" style="--d:.36s" data-i18n="p.c3">Disponible 24 horas, 7 días a la semana</li>
+            <li class="reveal" style="--d:.42s" data-i18n="p.c4">Pensada para clínicas, despachos y profesionales</li>
           </ul>
-          <a href="https://consultasyvisitas.pauizel.com" target="_blank" rel="noopener" class="btn btn--white reveal" style="--d:.5s">Conocer la plataforma</a>
+          <a href="https://consultasyvisitas.pauizel.com" target="_blank" rel="noopener" class="btn btn--white reveal" style="--d:.5s"><span data-i18n="p.cta">Conocer la plataforma</span> <span class="arrow">↗</span></a>
         </div>
 
         <div class="chat reveal" style="--d:.2s" aria-hidden="true">
           <div class="chat__head">
             <span class="chat__avatar">C</span>
-            <div><strong>Consultas &amp; Visitas</strong><small><i></i>En línea</small></div>
+            <div><strong>Consultas &amp; Visitas</strong><small><i></i><span data-i18n="chat.online">En línea</span></small></div>
           </div>
           <div class="chat__body">
-            <div class="msg msg--bot">Hola, ¿para qué día quieres tu cita?</div>
-            <div class="msg msg--user">El jueves por la tarde, si puede ser.</div>
-            <div class="msg msg--bot">Tengo disponible el jueves a las 17:00 o a las 18:30. ¿Cuál prefieres?</div>
-            <div class="msg msg--user">A las 17:00.</div>
+            <div class="msg msg--bot" data-i18n="chat.m1">Hola, ¿para qué día quieres tu cita?</div>
+            <div class="msg msg--user" data-i18n="chat.m2">El jueves por la tarde, si puede ser.</div>
+            <div class="msg msg--bot" data-i18n="chat.m3">Tengo disponible el jueves a las 17:00 o a las 18:30. ¿Cuál prefieres?</div>
+            <div class="msg msg--user" data-i18n="chat.m4">A las 17:00.</div>
             <div class="msg msg--bot msg--ok">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
-              Cita confirmada: jueves, 17:00.
+              <span data-i18n="chat.m5">Cita confirmada: jueves, 17:00.</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- POR QUÉ -->
+    <section class="section">
+      <div class="container why">
+        <div class="section__head reveal">
+          <p class="kicker" data-i18n="why.kicker">Por qué Codelab</p>
+          <h2 data-i18n="why.title">Un socio tecnológico, no un proveedor más.</h2>
+        </div>
+        <div class="why__list">
+          <div class="why__item reveal" style="--d:0s">
+            <h3 data-i18n="why.1t">Un único interlocutor</h3>
+            <p data-i18n="why.1d">Diseño, desarrollo, hosting y SEO con el mismo equipo. Sin intermediarios ni responsabilidades repartidas.</p>
+          </div>
+          <div class="why__item reveal" style="--d:.1s">
+            <h3 data-i18n="why.2t">Transparencia</h3>
+            <p data-i18n="why.2d">Presupuestos claros y plazos definidos desde el primer día. Sabrás siempre en qué punto está tu proyecto.</p>
+          </div>
+          <div class="why__item reveal" style="--d:.2s">
+            <h3 data-i18n="why.3t">Acompañamiento</h3>
+            <p data-i18n="why.3d">Tu web no termina el día del lanzamiento. Seguimos contigo para mantenerla, mejorarla y hacerla crecer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- MÉTODO -->
-    <section id="metodo" class="section">
+    <section id="metodo" class="section section--soft">
       <div class="container">
         <div class="section__head reveal">
-          <p class="kicker">Método</p>
-          <h2>Un proceso claro, de principio a fin.</h2>
+          <p class="kicker" data-i18n="m.kicker">Método</p>
+          <h2 data-i18n="m.title">Un proceso claro, de principio a fin.</h2>
         </div>
         <ol class="steps">
-          <li class="reveal" style="--d:0s"><span>01</span><h3>Análisis</h3><p>Entendemos tu negocio, tus clientes y tus objetivos.</p></li>
-          <li class="reveal" style="--d:.1s"><span>02</span><h3>Diseño</h3><p>Proponemos una solución visual y técnica a medida.</p></li>
-          <li class="reveal" style="--d:.2s"><span>03</span><h3>Desarrollo</h3><p>Construimos tu web optimizada para velocidad y SEO.</p></li>
-          <li class="reveal" style="--d:.3s"><span>04</span><h3>Lanzamiento</h3><p>La publicamos, la alojamos y te acompañamos después.</p></li>
+          <li class="reveal" style="--d:0s"><span>01</span><h3 data-i18n="m.1t">Análisis</h3><p data-i18n="m.1d">Entendemos tu negocio, tus clientes y tus objetivos.</p></li>
+          <li class="reveal" style="--d:.1s"><span>02</span><h3 data-i18n="m.2t">Diseño</h3><p data-i18n="m.2d">Proponemos una solución visual y técnica a medida.</p></li>
+          <li class="reveal" style="--d:.2s"><span>03</span><h3 data-i18n="m.3t">Desarrollo</h3><p data-i18n="m.3d">Construimos tu web optimizada para velocidad y SEO.</p></li>
+          <li class="reveal" style="--d:.3s"><span>04</span><h3 data-i18n="m.4t">Lanzamiento</h3><p data-i18n="m.4d">La publicamos, la alojamos y te acompañamos después.</p></li>
         </ol>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="container faq">
+        <div class="section__head reveal">
+          <p class="kicker" data-i18n="faq.kicker">Preguntas frecuentes</p>
+          <h2 data-i18n="faq.title">Resolvemos tus dudas.</h2>
+        </div>
+        <div class="faq__list">
+          <details class="reveal">
+            <summary data-i18n="faq.q1">¿Cuánto tarda en estar lista mi web?</summary>
+            <div class="faq__a"><p data-i18n="faq.a1">Depende del alcance del proyecto. Antes de empezar te entregamos un calendario con cada fase y su fecha, para que sepas exactamente cuándo estará lista.</p></div>
+          </details>
+          <details class="reveal" style="--d:.06s">
+            <summary data-i18n="faq.q2">¿Podré actualizar los contenidos yo mismo?</summary>
+            <div class="faq__a"><p data-i18n="faq.a2">Sí. Preparamos la web para que puedas editar textos e imágenes de forma sencilla, y te enseñamos a hacerlo.</p></div>
+          </details>
+          <details class="reveal" style="--d:.12s">
+            <summary data-i18n="faq.q3">¿Qué incluye el servicio de hosting?</summary>
+            <div class="faq__a"><p data-i18n="faq.a3">Alojamiento de alto rendimiento, certificado SSL, copias de seguridad, mantenimiento y soporte técnico.</p></div>
+          </details>
+          <details class="reveal" style="--d:.18s">
+            <summary data-i18n="faq.q4">¿Cómo funciona Consultas &amp; Visitas?</summary>
+            <div class="faq__a"><p data-i18n="faq.a4">Tus clientes abren el chat, indican cuándo quieren la cita y la plataforma les propone los horarios disponibles y confirma la reserva en tu agenda.</p></div>
+          </details>
+        </div>
       </div>
     </section>
 
@@ -151,11 +234,11 @@
       <div class="container">
         <div class="cta reveal">
           <div>
-            <h2>Hablemos de tu proyecto.</h2>
-            <p>Cuéntanos qué necesitas y te enviaremos un presupuesto sin compromiso.</p>
+            <h2 data-i18n="cta.title">Hablemos de tu proyecto.</h2>
+            <p data-i18n="cta.text">Cuéntanos qué necesitas y te enviaremos un presupuesto sin compromiso.</p>
           </div>
           <!-- TODO: cambiar por el correo real de Codelab -->
-          <a href="mailto:hola@codelab.es" class="btn btn--white">Escríbenos <span class="arrow">→</span></a>
+          <a href="mailto:hola@codelab.es" class="btn btn--white"><span data-i18n="cta.btn">Escríbenos</span> <span class="arrow">→</span></a>
         </div>
       </div>
     </section>
@@ -168,44 +251,16 @@
         Codelab
       </a>
       <nav class="footer__links">
-        <a href="#servicios">Servicios</a>
+        <a href="#servicios" data-i18n="nav.services">Servicios</a>
         <a href="https://consultasyvisitas.pauizel.com" target="_blank" rel="noopener">Consultas &amp; Visitas</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#faq" data-i18n="nav.faq">Preguntas</a>
+        <a href="#contacto" data-i18n="nav.contact">Contactar</a>
       </nav>
-      <p>© <span id="year"></span> Codelab</p>
+      <p>© <span id="year"></span> Codelab. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Menú móvil
-    const toggle = document.querySelector('.nav__toggle');
-    const links = document.querySelector('.nav__links');
-    toggle.addEventListener('click', () => {
-      const open = document.body.classList.toggle('menu-open');
-      toggle.setAttribute('aria-expanded', open);
-    });
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => document.body.classList.remove('menu-open')));
-
-    // Cabecera al hacer scroll
-    const nav = document.getElementById('nav');
-    const onScroll = () => nav.classList.toggle('nav--scrolled', window.scrollY > 10);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    // Aparición al hacer scroll
-    document.documentElement.classList.add('js');
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal, .chat').forEach(el => io.observe(el));
-
-    // Animación del título al cargar
-    setTimeout(() => document.documentElement.classList.add('loaded'), 60);
-
-  </script>
+  <script src="i18n.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
